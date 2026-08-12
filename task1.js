@@ -54,4 +54,7 @@ function canAttendFinalExam(attendance, assignmentMark) {
     return "Not Eligible";
   }
 }
-console.log(canAttendFinalExam(90, 80));
+console.log(canAttendFinalExam(70, 50));
+
+
+
