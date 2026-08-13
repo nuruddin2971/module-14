@@ -59,9 +59,22 @@
 
 // Bug: find why this doesn't return the first element
  
-function getFirstElement(arr) {
-    // console.log(arr)
-  return arr[0]; // find the bug
+// function getFirstElement(arr) {
+//     // console.log(arr)
+//   return arr[0]; // find the bug
+// }
+ 
+// console.log(getFirstElement([10, 20, 30])); // Expected: 10 (currently returns 20)
+
+// -------------------------------------------------------------------------------------
+
+// Task 14-5: Debug a Broken Function
+
+// Bug: find why the result comes out negative
+ 
+function subtract(a, b) {
+  return a - b; // find the bug
 }
  
-console.log(getFirstElement([10, 20, 30])); // Expected: 10 (currently returns 20)
+console.log(subtract(10, 3)); // Expected: 7 (currently returns -7)
+
