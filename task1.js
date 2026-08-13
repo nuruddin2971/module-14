@@ -239,6 +239,10 @@ function introduce(name, years, city) {
 
 // console.log(introduce("Alex", 2006, "Dhaka"));
 
+// -----------------------------------------------------------------
+
+// Task-12
+
 /* 
 applyDiscount(price, percent) + describeOrder(name, total)
 Purpose: applyDiscount should return the discounted price. describeOrder should 
@@ -260,5 +264,39 @@ function describeOrder(name, total, percentage) {
   return name + "'s order total is $" + discounted + " after discount.";
 }
 
-console.log(describeOrder("Sam", 100, 5));
-console.log(describeOrder("Sam", 500, 50));
+// console.log(describeOrder("Sam", 100, 5));
+// console.log(describeOrder("Sam", 500, 50));
+
+// -----------------------------------------------------------------
+
+// Task-13
+
+// Using the VS Code Debugger
+
+function findAverage(numbers) {
+  let total = 0;
+
+  for (let i = 0; i < numbers.length; i++) {
+    total += numbers[i];
+  }
+
+  let average = total / numbers.length;
+
+  return average;
+}
+
+// console.log(findAverage([10, 20, 30]));
+
+// Using the VS Code Debugger
+
+function sumEvenNumbers(prices) {
+  let total = 0;
+
+  for (let i = 0; i < prices.length; i++) {
+    if (prices[i] % 2 === 0) {
+      total += prices[i];
+    }
+  }
+  return total;
+}
+// console.log(sumEvenNumbers([20, 61, 15, 80, 10]));
