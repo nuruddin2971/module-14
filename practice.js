@@ -72,9 +72,47 @@
 
 // Bug: find why the result comes out negative
  
-function subtract(a, b) {
-  return a - b; // find the bug
+// function subtract(a, b) {
+//   return a - b; // find the bug
+// }
+ 
+// console.log(subtract(10, 3)); // Expected: 7 (currently returns -7)
+
+// -------------------------------------------------------------------------------------
+
+// Task 14-6: Rubber Duck Debugging
+
+// Bug: explain this line out loud — what does str.length actually equal for ""?
+ 
+// function isEmpty(str) {
+//   if (str.length === 0) { // find the bug
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+ 
+// console.log(isEmpty(""));  // Expected: true
+// console.log(isEmpty("hi")); // Expected: false
+
+// ---------------------------------------------------------------------------------------
+
+// Task 14-7: Debug a Multi-Part Bug
+
+// This code has TWO bugs. Fix one, re-run, then find the next.
+ 
+function getOddNumbers(numbers) {
+  let odds = [];
+ 
+  for (let i = 0; i <= numbers.length; i++) { // bug #1 is here
+    if (numbers[i] % 2 === 1) {                  // bug #2 is here
+      odds.push(numbers[i]);
+    }
+  }
+ 
+  return odds;
 }
  
-console.log(subtract(10, 3)); // Expected: 7 (currently returns -7)
+console.log(getOddNumbers([1, 2, 3, 4, 5, 6])); // Expected: [1, 3, 5]
+
 
