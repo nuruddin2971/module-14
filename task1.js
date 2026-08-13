@@ -300,3 +300,103 @@ function sumEvenNumbers(prices) {
   return total;
 }
 // console.log(sumEvenNumbers([20, 61, 15, 80, 10]));
+
+// -----------------------------------------------------------------
+
+// Task-14
+
+// Advanced Error: Chained Method Call
+
+/* 
+Purpose: should join words with ", ", uppercase them, split back into
+         an array, then return that array.
+Bugs: 1 bug - chaining .push() onto a method chain silently breaks the type.
+Expected: getUpperCaseWords(["javascript", "debugging"]) -> 2
+*/
+
+function getUpperCaseWords(words) {
+  return words.join(", ").toUpperCase().split(", ");
+}
+
+let result = getUpperCaseWords(["javascript", "debugging"]);
+
+// console.log(result);
+
+// -----------------------------------------------------------------
+
+// Task-15
+
+// Advanced Error: Nested Object Bug
+
+/* 
+Purpose: should calculate a student's average score across their subjects.
+Bugs: 1 bug - code assumes a property exists on the object that was never created.
+Expected: calculateAverage(student) -> 85.00 (average of 80 and 90)
+*/
+
+function calculateAverage(student) {
+  const subjects = Object.values(student.marks);
+  const totalSubjects = subjects.length;
+
+  let total = 0;
+  for (let elem of subjects) {
+    total += elem;
+  }
+
+  console.log(total);
+
+  return (total / totalSubjects).toFixed(2);
+}
+
+let student = {
+  marks: {
+    math: 80,
+    physics: 90,
+    philosophy: 80,
+  },
+};
+
+// console.log(calculateAverage(student));
+
+// -----------------------------------------------------------------
+
+// Task-15
+
+// Advanced Error: Array of Objects + Accumulator
+
+/* 
+Purpose: should calculate the total value of all in-stock inventory items
+         (quantity * price), skipping anything with 0 quantity.
+Bugs: 3 bugs - 1 property-name typo/case mismatch, 1 broken filter condition,
+      1 accumulator reset inside the loop.
+Expected: 
+    getTotalStockValue(inventory) -> 700
+    (5 * 100 + 0 * 50 (skipped) + 4 * 50 = 500 + 200 = 700)
+*/
+
+function getTotalStockValue(inventory) {
+  // console.log(inventory);
+  let totalValue = 0;
+
+  for (let i = 0; i < inventory.length; i++) {
+    // console.log(inventory[i].price, "inventory");
+    let item = inventory[i];
+    // console.log(item, "total value");
+
+    if (item.quantity > 0) {
+      totalValue += item.quantity * item.price;
+      // console.log(item.quantity * item.price);
+      // console.log(totalValue);
+    }
+  }
+  return totalValue;
+}
+
+let inventory = [
+  { name: "Keyboard", quantity: 5, price: 100 },
+  { name: "Mouse", quantity: 0, price: 50 },
+  { name: "Monitor", quantity: 4, price: 50 },
+  { name: "Camera", quantity: 1, price: 500 },
+];
+
+// console.log(getTotalStockValue(inventory));
