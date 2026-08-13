@@ -181,4 +181,84 @@ function averageOfPositives(arr) {
   return Number(total / count).toFixed(2);
 }
 
-console.log(averageOfPositives([-5, 10.22, 15.243232, -2, 5]));
+// console.log(averageOfPositives([-5, 10.22, 15.243232, -2, 5]));
+
+// -----------------------------------------------------------------
+
+// Task-10
+
+// Debug a Broken Function
+
+/* 
+calculateTotal(price, tax)
+Purpose: should claculate and RETURN the total price including tax,
+         so it can be used later in other calculations.
+Bugs: 3 bugs - all about return vs print, and using the function's result.
+Expected:
+  calculateTotal(100, 5) -> 105
+  finalAmount + 20 -> 125
+*/
+
+function calculateTotal(price, tax) {
+  let total = price + tax;
+  return total;
+}
+
+// let finalAmount = calculateTotal(100, 5);
+// console.log(finalAmount + 20);
+
+// -----------------------------------------------------------------
+
+// Task-11
+
+/* 
+introduce(name, birthYear, city)
+Purpose: should calculate age from birthYear (current year - birthYear)
+         and return a sentence like:
+         "My name is Alex, I am 20 years old, from Dhaka."
+Bugs: 3 bugs - missing argument at call site, wrong variable used in 
+      calculation, and a leftover undefined variable in the return string.
+Expected:
+    introduce("Alex", 2006, "Dhaka") -> "My name is Alex, I am 20 years old, from Dhaka."
+    (assuming current year is 2026)
+*/
+
+function introduce(name, years, city) {
+  let currentYear = new Date().getFullYear();
+  let calculatedAge = currentYear - years; //wrong variable used - should subtract birthYear, not name
+
+  return (
+    "My name is " +
+    name +
+    ", I am " +
+    calculatedAge +
+    " years old, from " +
+    city
+  );
+}
+
+// console.log(introduce("Alex", 2006, "Dhaka"));
+
+/* 
+applyDiscount(price, percent) + describeOrder(name, total)
+Purpose: applyDiscount should return the discounted price. describeOrder should 
+         use that returned value to build a summary sentence.
+Bugs: 3 bugs - 1 missing return, 1 function called without needed arguments, 
+      1 result never captured/used.
+Expected:
+    describeOrder("Sam", 100) -> "Sam's order total is $90 after discount."
+*/
+
+function applyDiscount(price, percent) {
+  return price - (price * percent) / 100;
+}
+
+// console.log(applyDiscount());
+
+function describeOrder(name, total, percentage) {
+  let discounted = applyDiscount(total, percentage);
+  return name + "'s order total is $" + discounted + " after discount.";
+}
+
+console.log(describeOrder("Sam", 100, 5));
+console.log(describeOrder("Sam", 500, 50));
